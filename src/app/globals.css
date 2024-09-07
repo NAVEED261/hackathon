@@ -1,76 +1,92 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+@tailwind components;
+@tailwind utilities;
 
-  @layer base {
-    :root {
-      --background: 0 0% 100%;
-      --foreground: 224 71.4% 4.1%;
+/* Base layer for custom CSS variables */
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* White background */
+    --foreground: 224 71.4% 4.1%; /* Dark text color */
 
-      --card: 0 0% 100%;
-      --card-foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%; /* Card background */
+    --card-foreground: 224 71.4% 4.1%; /* Card text color */
 
-      --popover: 0 0% 100%;
-      --popover-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%; /* Popover background */
+    --popover-foreground: 224 71.4% 4.1%; /* Popover text color */
 
-      --primary: 220.9 39.3% 11%;
-      --primary-foreground: 210 20% 98%;
+    --primary: 220.9 39.3% 11%; /* Primary color (dark) */
+    --primary-foreground: 210 20% 98%; /* Primary text color (light) */
 
-      --secondary: 220 14.3% 95.9%;
-      --secondary-foreground: 220.9 39.3% 11%;
+    --secondary: 220 14.3% 95.9%; /* Secondary color (light) */
+    --secondary-foreground: 220.9 39.3% 11%; /* Secondary text color (dark) */
 
-      --muted: 220 14.3% 95.9%;
-      --muted-foreground: 220 8.9% 46.1%;
+    --muted: 220 14.3% 95.9%; /* Muted background color */
+    --muted-foreground: 220 8.9% 46.1%; /* Muted text color */
 
-      --accent: 220 14.3% 95.9%;
-      --accent-foreground: 220.9 39.3% 11%;
+    --accent: 220 14.3% 95.9%; /* Accent color */
+    --accent-foreground: 220.9 39.3% 11%; /* Accent text color */
 
-      --destructive: 0 84.2% 60.2%;
-      --destructive-foreground: 210 20% 98%;
+    --destructive: 0 84.2% 60.2%; /* Destructive action (red) */
+    --destructive-foreground: 210 20% 98%; /* Destructive text (white) */
 
-      --border: 220 13% 91%;
-      --input: 220 13% 91%;
-      --ring: 224 71.4% 4.1%;
+    --border: 220 13% 91%; /* Border color */
+    --input: 220 13% 91%; /* Input background color */
+    --ring: 224 71.4% 4.1%; /* Focus ring color */
 
-      --radius: 0.5rem;
-    }
-
-    .dark {
-      --background: 224 71.4% 4.1%;
-      --foreground: 210 20% 98%;
-
-      --card: 224 71.4% 4.1%;
-      --card-foreground: 210 20% 98%;
-
-      --popover: 224 71.4% 4.1%;
-      --popover-foreground: 210 20% 98%;
-
-      --primary: 210 20% 98%;
-      --primary-foreground: 220.9 39.3% 11%;
-
-      --secondary: 215 27.9% 16.9%;
-      --secondary-foreground: 210 20% 98%;
-
-      --muted: 215 27.9% 16.9%;
-      --muted-foreground: 217.9 10.6% 64.9%;
-
-      --accent: 215 27.9% 16.9%;
-      --accent-foreground: 210 20% 98%;
-
-      --destructive: 0 62.8% 30.6%;
-      --destructive-foreground: 210 20% 98%;
-
-      --border: 215 27.9% 16.9%;
-      --input: 215 27.9% 16.9%;
-      --ring: 216 12.2% 83.9%;
-    }
+    --radius: 0.5rem; /* Default border radius */
   }
 
-  @layer base {
-    * {
-      @apply border-border;
-    }
-    body {
-      @apply bg-background text-foreground;
-    }
+  /* Dark theme overrides */
+  .dark {
+    --background: 224 71.4% 4.1%; /* Dark background */
+    --foreground: 210 20% 98%; /* Light text */
+
+    --card: 224 71.4% 4.1%; /* Dark card background */
+    --card-foreground: 210 20% 98%; /* Light card text */
+
+    --popover: 224 71.4% 4.1%; /* Dark popover background */
+    --popover-foreground: 210 20% 98%; /* Light popover text */
+
+    --primary: 210 20% 98%; /* Primary text color for dark mode */
+    --primary-foreground: 220.9 39.3% 11%; /* Primary background color in dark mode */
+
+    --secondary: 215 27.9% 16.9%; /* Secondary background for dark mode */
+    --secondary-foreground: 210 20% 98%; /* Light text for secondary in dark mode */
+
+    --muted: 215 27.9% 16.9%; /* Muted background in dark mode */
+    --muted-foreground: 217.9 10.6% 64.9%; /* Muted text in dark mode */
+
+    --accent: 215 27.9% 16.9%; /* Accent color in dark mode */
+    --accent-foreground: 210 20% 98%; /* Light accent text in dark mode */
+
+    --destructive: 0 62.8% 30.6%; /* Destructive background in dark mode */
+    --destructive-foreground: 210 20% 98%; /* Destructive text in dark mode */
+
+    --border: 215 27.9% 16.9%; /* Dark border color */
+    --input: 215 27.9% 16.9%; /* Dark input background */
+    --ring: 216 12.2% 83.9%; /* Dark focus ring color */
   }
+}
+
+/* Global styles */
+@layer base {
+  /* Apply the border color to all elements */
+  * {
+    @apply border-border;
+  }
+
+  /* Body styling */
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Custom link hover effect */
+  a {
+    @apply text-blue-600 hover:text-blue-800;
+  }
+
+  /* Button styling (optional, remove if not needed) */
+  button {
+    @apply bg-primary text-primary-foreground px-4 py-2 rounded-md transition-colors duration-300 ease-in-out hover:bg-primary-foreground hover:text-primary;
+  }
+}
