@@ -1,5 +1,6 @@
 import React from "react";
 import { ButtonDemo } from "./button";
+import Image from "next/image";
 
 const BestSelling = () => {
   return (
@@ -37,11 +38,13 @@ const BestSelling = () => {
                   </button>
                 </div>
                 <div className="flex items-center">
-                  <img
-                    src="/pictures/add to cart.webp"
-                    alt="Add to Cart"
-                    className="w-6 h-6 mr-2"
-                  />
+                <Image
+  src="/path/to/image.jpg"
+  alt="description"
+  width={500}
+  height={500}
+/>
+
                   <ButtonDemo />
                 </div>
               </div>

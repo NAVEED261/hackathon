@@ -1,12 +1,19 @@
-"use client"
+'use client';
 import React, { useState } from 'react';
 import { ButtonDemo } from '@/components/button';
 import Image from 'next/image';
 
-const Vegetables = () => {
-  const [selected, setSelected] = useState(null); // To manage selected category
+// Type definitions for vegetables data
+interface VegetableItem {
+  title: string;
+  price: number;
+  imageUrl: string;
+}
 
-  const handleSelect = (itemId) => {
+const Vegetables: React.FC = () => {
+  const [selected, setSelected] = useState<number | null>(null); // To manage selected category
+
+  const handleSelect = (itemId: number) => {
     setSelected(itemId); // Set the selected category
   };
 
@@ -57,9 +64,13 @@ const Vegetables = () => {
   );
 };
 
-// Payment Form Component
-const PaymentForm = ({ item }) => {
-  const handlePayment = (e) => {
+// Payment Form Component with typed props
+interface PaymentFormProps {
+  item: VegetableItem;
+}
+
+const PaymentForm: React.FC<PaymentFormProps> = ({ item }) => {
+  const handlePayment = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     alert(`Processing payment for ${item.title} - $${item.price}`);
   };
@@ -95,10 +106,10 @@ const PaymentForm = ({ item }) => {
 };
 
 // Dummy data for vegetables
-const vegetablesData = [
+const vegetablesData: VegetableItem[] = [
   {
     title: 'The Tomato',
-    price: 16.00,
+    price: 16.0,
     imageUrl: '/pictures/vegatables/images (1).jpg',
   },
   {
@@ -108,17 +119,17 @@ const vegetablesData = [
   },
   {
     title: 'The Kiwi',
-    price: 12.00,
+    price: 12.0,
     imageUrl: '/pictures/vegatables/veg14jpg.jpg',
   },
   {
     title: 'The Arches',
-    price: 18.40,
+    price: 18.4,
     imageUrl: '/pictures/vegatables/veg17.jpg',
   },
   {
     title: 'The Strawberry',
-    price: 16.00,
+    price: 16.0,
     imageUrl: '/pictures/vegatables/veg19.jpg',
   },
   {
@@ -128,12 +139,12 @@ const vegetablesData = [
   },
   {
     title: 'The Cherry',
-    price: 12.00,
+    price: 12.0,
     imageUrl: '/pictures/vegatables/veg23.jpg',
   },
   {
     title: 'The Avocado',
-    price: 18.40,
+    price: 18.4,
     imageUrl: '/pictures/vegatables/veg8.jpg',
   },
 ];

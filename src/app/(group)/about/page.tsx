@@ -1,49 +1,59 @@
-'use client'
+'use client';
+
 import React from 'react';
 
-const AboutPage = () => {
+// Main About Page Component
+const AboutPage: React.FC = () => {
   return (
-    <div className="bg-sky-200 p-5">
-      {/* Main Title */}
-      <h1 className="text-5xl text-center text-sky-500 bg-gray-700 p-12 font-bold underline decoration-wavy hover:bg-red-300 hover:text-white transition-all duration-300">
-        FRESH GROCESSORIES
-      </h1>
+    <div
+      className="min-h-screen p-10 bg-cover bg-center flex flex-col items-center"
+      style={{ backgroundImage: "url('/pictures/for about.jpg')" }} // Correct path for the background image
+    >
+      {/* Semi-transparent overlay for readability */}
+      <div className="bg-black bg-opacity-30 w-full h-full absolute top-0 left-0 z-0"></div>
 
-      {/* Content Section */}
-      <div className="mt-10 px-5 space-y-10">
-        <ContentCard
-          title="FRESH AND IMPORTANT FRUITS"
-          description="At Fatima Zehra Online Store, we pride ourselves on offering the freshest fruit available. Our selection is handpicked daily to ensure that you receive only the best produce."
-        />
-        <ContentCard
-          title="Fresh Vegetables"
-          description="Our extensive range includes everything from crisp lettuce and spinach to vibrant bell peppers and tomatoes, carefully selected to meet high standards for quality and taste."
-        />
-        <ContentCard
-          title="Frozen Foods"
-          description="Perfect for busy lifestyles, our frozen foods retain their nutritional value and flavor, providing you with a quick and easy meal solution."
-        />
-      </div>
+      <div className="relative z-10 w-full max-w-5xl">
+        {/* Main Title */}
+        <h1 className="text-5xl text-center text-gray-800 bg-gradient-to-r from-green-400 to-blue-500 text-transparent bg-clip-text font-bold mb-12">
+          FRESH GROCESSORIES
+        </h1>
 
-      {/* Payment Section */}
-      <div className="mt-16 p-5 bg-white shadow-lg rounded-lg max-w-xl mx-auto">
-        <h2 className="text-2xl font-semibold text-center mb-6">Make a Payment</h2>
-        <PaymentForm />
+        {/* Content Section */}
+        <div className="grid gap-12 mx-auto">
+          <ContentCard
+            title="Fresh and Important Fruits"
+            description="At Fatima Zehra Online Store, we pride ourselves on offering the freshest fruit available. Our selection is handpicked daily to ensure that you receive only the best produce."
+          />
+          <ContentCard
+            title="Fresh Vegetables"
+            description="Our extensive range includes everything from crisp lettuce and spinach to vibrant bell peppers and tomatoes, carefully selected to meet high standards for quality and taste."
+          />
+          <ContentCard
+            title="Frozen Foods"
+            description="Perfect for busy lifestyles, our frozen foods retain their nutritional value and flavor, providing you with a quick and easy meal solution."
+          />
+        </div>
+
+        {/* Payment Section */}
+        <div className="mt-16 p-8 bg-white shadow-lg rounded-lg max-w-xl mx-auto">
+          <h2 className="text-3xl font-semibold text-center mb-8 text-gray-800">Make a Payment</h2>
+          <PaymentForm />
+        </div>
       </div>
     </div>
   );
 };
 
 // Payment Form Component
-const PaymentForm = () => {
-  const handleSubmit = (e) => {
+const PaymentForm: React.FC = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     alert('Payment Submitted (This is a placeholder).');
   };
 
   return (
     <form className="space-y-6" onSubmit={handleSubmit}>
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid gap-6">
         {/* Name Field */}
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
@@ -95,7 +105,7 @@ const PaymentForm = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-300"
+          className="w-full bg-gradient-to-r from-blue-500 to-green-500 text-white py-2 rounded-md hover:bg-gradient-to-l hover:from-green-500 hover:to-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-300"
         >
           Submit Payment
         </button>
@@ -104,13 +114,12 @@ const PaymentForm = () => {
   );
 };
 
-// Content Card Component
-const ContentCard = ({ title, description }) => {
+// ContentCard Component
+const ContentCard: React.FC<{ title: string; description: string }> = ({ title, description }) => {
   return (
-    <div className="bg-gray-100 text-gray-900 p-8 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out relative">
-      <h2 className="text-2xl font-semibold mb-4 underline decoration-dotted">{title}</h2>
-      <p className="italic mb-6">{description}</p>
-      {/* Icons for interactions */}
+    <div className="bg-white text-gray-800 p-8 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out relative">
+      <h2 className="text-2xl font-semibold mb-4 text-blue-600">{title}</h2>
+      <p className="text-gray-600 mb-6">{description}</p>
       <div className="flex justify-center absolute bottom-4 left-1/2 transform -translate-x-1/2 space-x-6">
         <IconInfo icon="👁️" text="1.2K" />
         <IconInfo icon="💬" text="6" />
@@ -119,8 +128,8 @@ const ContentCard = ({ title, description }) => {
   );
 };
 
-// Icon Info Component
-const IconInfo = ({ icon, text }) => (
+// IconInfo Component
+const IconInfo: React.FC<{ icon: string; text: string }> = ({ icon, text }) => (
   <div className="flex items-center text-gray-500 space-x-2">
     <span>{icon}</span>
     <span>{text}</span>

@@ -1,12 +1,19 @@
-"use client"
+'use client';
 import React, { useState } from 'react';
 import { ButtonDemo } from '@/components/button';
 import Image from 'next/image';
 
-const Beverages = () => {
-  const [selected, setSelected] = useState(null); // To manage selected category
+// Type definitions for beverages data
+interface BeverageItem {
+  title: string;
+  price: number;
+  imageUrl: string;
+}
 
-  const handleSelect = (itemId) => {
+const Beverages: React.FC = () => {
+  const [selected, setSelected] = useState<number | null>(null); // To manage selected category
+
+  const handleSelect = (itemId: number) => {
     setSelected(itemId); // Set the selected category
   };
 
@@ -25,10 +32,12 @@ const Beverages = () => {
                 onClick={() => handleSelect(index)} // Handle click to select item
               >
                 <a className="block relative h-48 rounded overflow-hidden group">
-                  <img
+                  <Image
                     alt="ecommerce"
                     className="object-cover object-center w-full h-full block group-hover:scale-105 transition-transform duration-300 ease-in-out"
                     src={item.imageUrl}
+                    width={400}
+                    height={300}
                   />
                 </a>
                 <div className={`mt-4 group-hover:text-red-500 transition-colors duration-300 ease-in-out ${selected === index ? 'text-white' : ''}`}>
@@ -55,9 +64,14 @@ const Beverages = () => {
   );
 };
 
-// Payment Form Component
-const PaymentForm = ({ item }) => {
-  const handlePayment = (e) => {
+// Type definitions for PaymentForm props
+interface PaymentFormProps {
+  item: BeverageItem;
+}
+
+// Payment Form Component with typed props
+const PaymentForm: React.FC<PaymentFormProps> = ({ item }) => {
+  const handlePayment = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     alert(`Processing payment for ${item.title} - $${item.price}`);
   };
@@ -92,11 +106,11 @@ const PaymentForm = ({ item }) => {
   );
 };
 
-// Dummy data for beverages
-const beveragesData = [
+// Dummy data for beverages with type annotations
+const beveragesData: BeverageItem[] = [
   {
     title: 'Beverage 1',
-    price: 16.00,
+    price: 16.0,
     imageUrl: '/beverages/images (5).jpg',
   },
   {
@@ -106,12 +120,12 @@ const beveragesData = [
   },
   {
     title: 'Beverage 3',
-    price: 12.00,
+    price: 12.0,
     imageUrl: '/beverages/61CxLtEM8nL._AC_UL600_SR600,600_.jpg',
   },
   {
     title: 'Beverage 4',
-    price: 18.40,
+    price: 18.4,
     imageUrl: '/beverages/images (10).jpg',
   },
   // Add more items as needed

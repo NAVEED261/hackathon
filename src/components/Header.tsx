@@ -16,14 +16,14 @@ export const ButtonDemo = () => {
   };
 
   return (
-    <div>
+    <div className="relative">
       <button
         onClick={handleClick}
-        className="bg-blue-500 text-white px-4 py-2 rounded-lg transition-all duration-300 ease-in-out hover:bg-blue-700 focus:ring-2 focus:ring-blue-500"
+        className="bg-gradient-to-r from-amber-600 to-yellow-500 text-white px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 ease-in-out hover:from-amber-700 hover:to-yellow-600 focus:ring-4 focus:ring-amber-300"
       >
         Add to Cart
       </button>
-      <div className="mt-2">
+      <div className="mt-2 text-sm text-gray-700">
         <span className="inline-block mx-1">{count}</span>
       </div>
     </div>
@@ -32,104 +32,103 @@ export const ButtonDemo = () => {
 
 const Header = () => {
   return (
-    <div>
-      {/* Sticky Header */}
-      <header className="bg-gradient-to-r from-red-100 via-red-200 to-red-100 text-gray-700 body-font p-5 shadow-lg fixed w-full top-0 z-50">
-        <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <>
+      {/* Navbar Container with Margin and Padding at the Bottom */}
+      <header className="bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 p-4 shadow-2xl rounded-full fixed w-[95%] top-4 left-[2.5%] z-50 pb-4">
+        <div className="container mx-auto flex flex-wrap items-center justify-between p-4">
+          
           {/* Logo and Title */}
-          <div className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+          <div className="flex items-center space-x-4">
             <Image
-              src="/pictures/fatima zehra logo.jpg"
+              src="/pictures/logo.png" // Make sure this path is correct
               alt="Logo"
-              width={70}
-              height={70}
-              className="rounded-full"
+              width={70} // Adjust width
+              height={70} // Adjust height
+              className="rounded-full object-cover border border-gray-300 shadow-md"
             />
-            <span className="text-sky-400 ml-3 mr-5 text-2xl font-bold italic hover:bg-gray-600 ">
-              Fatima Zehra Online Store
+            <span className="text-sky-800 text-3xl font-serif italic font-bold tracking-wider">
+              Fatima Zehra Store
             </span>
           </div>
 
-          {/* Navigation */}
-          <nav className="font-semibold text-gray-600 md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            <ul className="flex justify-center items-center space-x-8 text-gray-600 font-semibold">
-              <li>
-                <Link href="/">
-                  <span className="mr-5 hover:text-gray-900 cursor-pointer transition-colors duration-300 ease-in-out">
-                    Home
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/about">
-                  <span className="mr-5 hover:text-gray-900 cursor-pointer transition-colors duration-300 ease-in-out">
-                    About
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact">
-                  <span className="mr-5 hover:text-gray-900 cursor-pointer transition-colors duration-300 ease-in-out">
-                    Contact
-                  </span>
-                </Link>
-              </li>
+          {/* Navigation with Antique Box Styles */}
+          <nav className="flex space-x-4 items-center">
+            <Link href="/" className="bg-amber-200 border border-amber-300 shadow-md px-4 py-2 rounded-md text-amber-800 hover:bg-amber-300 transition-all duration-300 ease-in-out">
+              Home
+            </Link>
+            <Link href="/about" className="bg-green-200 border border-green-300 shadow-md px-4 py-2 rounded-md text-green-800 hover:bg-green-300 transition-all duration-300 ease-in-out">
+              About
+            </Link>
+            <Link href="/contact" className="bg-blue-200 border border-blue-300 shadow-md px-4 py-2 rounded-md text-blue-800 hover:bg-blue-300 transition-all duration-300 ease-in-out">
+              Contact
+            </Link>
 
-              {/* Dropdown for Grocessories */}
-              <li className="relative group">
-                <span className="mr-5 cursor-pointer transition-colors duration-300 ease-in-out">
-                  Grocessories
-                </span>
-                <ul className="absolute hidden group-hover:block bg-white shadow-lg rounded-lg mt-2 z-10 group-hover:flex flex-col space-y-2 transition-all duration-300 ease-in-out">
-                  <li className="p-2 hover:bg-gray-100 rounded-t-lg">
-                    <Link href="/grocessories/fruits">
-                      <span className="text-sky-900 hover:text-gray-900 cursor-pointer">
-                        Fruits
-                      </span>
-                    </Link>
-                  </li>
-                  <li className="p-2 hover:bg-gray-100">
-                    <Link href="/grocessories/vegetables">
-                      <span className="text-gray-600 hover:text-gray-900 cursor-pointer">
-                        Vegetables
-                      </span>
-                    </Link>
-                  </li>
-                  <li className="p-2 hover:bg-gray-100">
-                    <Link href="/grocessories/beverages">
-                      <span className="text-gray-600 hover:text-gray-900 cursor-pointer">
-                        Beverages
-                      </span>
-                    </Link>
-                  </li>
-                  <li className="p-2 hover:bg-gray-100 rounded-b-lg">
-                    <Link href="/grocessories/frozen">
-                      <span className="text-gray-600 hover:text-gray-900 cursor-pointer">
-                        Frozen
-                      </span>
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+            {/* Dropdown for Grocessories */}
+            <div className="relative group">
+              <span className="bg-purple-200 border border-purple-300 shadow-md px-4 py-2 rounded-md text-purple-800 cursor-pointer hover:bg-purple-300 transition-all duration-300 ease-in-out">
+                Grocessories
+              </span>
+              <ul className="absolute hidden group-hover:grid grid-cols-2 gap-4 bg-purple-100 shadow-2xl rounded-lg mt-2 p-4 w-64 z-10 border border-purple-300 transition-all duration-300 ease-in-out transform translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0">
+                <li className="p-2 hover:bg-purple-200 rounded-lg">
+                  <Link href="/grocessories/fruits">
+                    <span className="text-purple-900 hover:text-gray-900 cursor-pointer block">
+                      Fruits
+                    </span>
+                  </Link>
+                </li>
+                <li className="p-2 hover:bg-purple-200 rounded-lg">
+                  <Link href="/grocessories/vegetables">
+                    <span className="text-purple-900 hover:text-gray-900 cursor-pointer block">
+                      Vegetables
+                    </span>
+                  </Link>
+                </li>
+                <li className="p-2 hover:bg-purple-200 rounded-lg">
+                  <Link href="/grocessories/beverages">
+                    <span className="text-purple-900 hover:text-gray-900 cursor-pointer block">
+                      Beverages
+                    </span>
+                  </Link>
+                </li>
+                <li className="p-2 hover:bg-purple-200 rounded-lg">
+                  <Link href="/grocessories/frozen">
+                    <span className="text-purple-900 hover:text-gray-900 cursor-pointer block">
+                      Frozen
+                    </span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </nav>
 
           {/* Add to Cart Button */}
-          <div className="flex items-center">
+          <div className="flex items-center space-x-2">
             <Image
               src="/pictures/add to cart.webp"
               alt="Add to Cart"
-              width={24}
-              height={24}
-              className="mr-2"
+              width={30}
+              height={30}
+              className="opacity-80"
             />
-            <div className="rounded-lg hover:bg-red-400 transition-transform duration-300 ease-in-out">
-              <ButtonDemo />
-            </div>
+            <ButtonDemo />
           </div>
         </div>
       </header>
-    </div>
+
+      {/* Main Content Section with Top Margin to Avoid Overlap */}
+      <main className="mt-32 p-6">
+        <section>
+          {/* Your main page content goes here */}
+          <h1 className="text-4xl font-bold text-sky-800">Welcome to Fatima Zehra Onlin Store</h1>
+          <p className="mt-4 text-gray-600">
+            Indulge in the freshness of nature with our handpicked selection of organic fruits &vegetables. Sourced directly from local farms, our vegetables are grown with care and dedication to bring you the highest quality produce.
+          </p>
+          <button className="mt-6 bg-green-500 text-white px-6 py-3 rounded-full shadow-md hover:bg-green-600 transition-all duration-300 ease-in-out">
+            Shop Now
+          </button>
+        </section>
+      </main>
+    </>
   );
 };
 

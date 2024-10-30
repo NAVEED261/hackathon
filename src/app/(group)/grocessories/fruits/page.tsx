@@ -25,10 +25,12 @@ const Fruits = () => {
                 onClick={() => handleSelect(index)} // Handle click to select item
               >
                 <a className="block relative h-48 rounded overflow-hidden group">
-                  <img
+                  <Image
                     alt="ecommerce"
                     className="object-cover object-center w-full h-full block group-hover:scale-105 transition-transform duration-300 ease-in-out"
                     src={item.imageUrl}
+                    width={400}
+                    height={300}
                   />
                 </a>
                 <div className={`mt-4 group-hover:text-red-500 transition-colors duration-300 ease-in-out ${selected === index ? 'text-white' : ''}`}>
