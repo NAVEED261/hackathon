@@ -2,9 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-
 import { cn } from "@/lib/utils";
-// import { Icons } from "@/components/icons"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,30 +13,26 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-const components: { title: string; href: string; description: string }[] = [
+const components = [
   {
     title: "FRUITS",
     href: "/docs/primitives/alert-dialog",
-    description:
-      "A collection beautiful tops for your wardoble to sleek your look.",
+    description: "A collection of beautiful fruits for your pantry.",
   },
   {
-    title: "VEGATIBLES",
+    title: "VEGETABLES",
     href: "/docs/primitives/hover-card",
-    description:
-      "A collection beautiful Assessories/jewelery for your wardoble to sleek your look.",
+    description: "Fresh vegetables for your everyday cooking needs.",
   },
   {
-    title: "BEWERAGES",
+    title: "BEVERAGES",
     href: "/docs/primitives/progress",
-    description:
-      "A collection beautiful Paints for your wardoble to sleek your look",
+    description: "Delicious beverages to refresh and energize.",
   },
   {
-    title: "FEROZEN FOODS",
+    title: "FROZEN FOODS",
     href: "/docs/primitives/scroll-area",
-    description:
-      "A collection beautiful Shoes for your wardoble to sleek your look.",
+    description: "Frozen foods to simplify your meal prep.",
   },
 ];
 
@@ -52,29 +46,25 @@ export function NavigationMenuDemo() {
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
-                  <a
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                    href="/"
-                  >
-                    {/* <Icons.logo className="h-6 w-6" /> */}
-                  </a>
+                  <Link href="/" className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
+                    {/* Optional logo or other elements can be added here */}
+                  </Link>
                 </NavigationMenuLink>
               </li>
-              <p className="flex flex-center items-center text-gray-400 font-semibold italic. bg-sky-300 hove:bg-red-200 ">
+              <p className="text-center text-gray-400 font-semibold italic bg-sky-300 hover:bg-red-200 p-4">
                 Fatima Zehra online store is your go-to online shopping
                 destination for all things ladies fashion! Discover a stunning
                 collection featuring trendy tops, stylish shoes, elegant
-                jewelry, comfortable pants, and much more. We are committed to
-                offering top-notch quality and unparalleled style in every
-                product. Visit Fatima Zehra today and elevate your wardrobe."
+                jewelry, comfortable pants, and much more.
               </p>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
+
         <NavigationMenuItem>
-          <NavigationMenuTrigger>GROCESSORIES</NavigationMenuTrigger>
+          <NavigationMenuTrigger>GROCERIES</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
               {components.map((component) => (
                 <ListItem
                   key={component.title}
@@ -87,15 +77,17 @@ export function NavigationMenuDemo() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
+
         <NavigationMenuItem>
-          <Link href="#" legacyBehavior passHref>
+          <Link href="/about" passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               ABOUT
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
+
         <NavigationMenuItem>
-          <Link href="#" legacyBehavior passHref>
+          <Link href="/contact" passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               CONTACT
             </NavigationMenuLink>

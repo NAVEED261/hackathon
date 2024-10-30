@@ -1,5 +1,6 @@
-import Link from "next/link";
 import React from "react";
+import Image from "next/image";
+import Link from "next/link"; // Ensure correct import from "next/link"
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
@@ -11,19 +12,19 @@ const Footer = () => {
             {/* Company Section */}
             <div className="lg:w-1/4 md:w-1/2 w-full px-4">
               <h2 className="title-font font-medium text-gray-900 text-2xl mb-3">COMPANY</h2>
-              <nav className="list-none mb-10">
+              <nav className="list-none mb-10 space-y-2">
                 <li>
-                  <Link className="text-gray-600 hover:text-gray-800" href="/">
+                  <Link href="/" className="text-gray-600 hover:text-gray-800">
                     HOME
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-gray-600 hover:text-gray-800" href="/about">
+                  <Link href="/about" className="text-gray-600 hover:text-gray-800">
                     ABOUT US
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-gray-600 hover:text-gray-800" href="/contact">
+                  <Link href="/contact" className="text-gray-600 hover:text-gray-800">
                     CONTACT US
                   </Link>
                 </li>
@@ -35,22 +36,22 @@ const Footer = () => {
               <h2 className="title-font font-medium text-gray-900 text-2xl mb-3">SERVICES</h2>
               <nav className="list-none mb-10">
                 <li>
-                  <Link className="text-gray-600 hover:text-gray-800" href="#">
+                  <Link href="#" className="text-gray-600 hover:text-gray-800">
                     BRANDING
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-gray-600 hover:text-gray-800" href="#">
+                  <Link href="#" className="text-gray-600 hover:text-gray-800">
                     DESIGN
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-gray-600 hover:text-gray-800" href="#">
+                  <Link href="#" className="text-gray-600 hover:text-gray-800">
                     MARKETING
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-gray-600 hover:text-gray-800" href="#">
+                  <Link href="#" className="text-gray-600 hover:text-gray-800">
                     ADVERTISEMENT
                   </Link>
                 </li>
@@ -62,17 +63,17 @@ const Footer = () => {
               <h2 className="title-font font-medium text-gray-900 text-2xl mb-3">LEGAL</h2>
               <nav className="list-none mb-10">
                 <li>
-                  <Link className="text-gray-600 hover:text-gray-800" href="#">
-                    TERM AND CONDITION
+                  <Link href="#" className="text-gray-600 hover:text-gray-800">
+                    TERMS AND CONDITIONS
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-gray-600 hover:text-gray-800" href="#">
+                  <Link href="#" className="text-gray-600 hover:text-gray-800">
                     PRIVACY POLICY
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-gray-600 hover:text-gray-800" href="#">
+                  <Link href="#" className="text-gray-600 hover:text-gray-800">
                     COOKIES POLICY
                   </Link>
                 </li>
@@ -84,10 +85,7 @@ const Footer = () => {
               <h2 className="title-font font-medium text-gray-900 text-2xl mb-3">SUBSCRIBE</h2>
               <div className="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start">
                 <div className="relative w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
-                  <label
-                    htmlFor="footer-field"
-                    className="leading-7 text-sm text-gray-600"
-                  >
+                  <label htmlFor="footer-field" className="leading-7 text-sm text-gray-600">
                     YOUR EMAIL
                   </label>
                   <input
@@ -112,10 +110,11 @@ const Footer = () => {
         <div className="bg-gray-100">
           <div className="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
             <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-              <img
+              <Image
                 src="/pictures/fatima zehra logo.jpg"
                 alt="Logo"
-                className="h-10"
+                width={40}
+                height={40}
               />
               <span className="ml-3 text-xl">SHOPPING CART</span>
             </a>
