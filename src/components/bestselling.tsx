@@ -24,8 +24,17 @@ const BestSelling = () => {
             className="card bg-white shadow-lg hover:shadow-2xl transition-shadow duration-300 rounded-xl"
           >
             <figure className="px-10 pt-10">
-              <img src={product.imageUrl} alt={product.name} className="rounded-xl" />
-              <figcaption className="text-center mt-4 font-semibold text-lg">{product.name}</figcaption>
+              {/* Updated to use Next.js Image component */}
+              <Image
+                src={product.imageUrl}
+                alt={product.name}
+                className="rounded-xl"
+                width={400}  // Set appropriate width
+                height={300} // Set appropriate height
+              />
+              <figcaption className="text-center mt-4 font-semibold text-lg">
+                {product.name}
+              </figcaption>
               <p className="text-center text-gray-700">${product.price}</p>
             </figure>
             <div className="card-body items-center text-center">
@@ -38,13 +47,6 @@ const BestSelling = () => {
                   </button>
                 </div>
                 <div className="flex items-center">
-                <Image
-  src="/path/to/image.jpg"
-  alt="description"
-  width={500}
-  height={500}
-/>
-
                   <ButtonDemo />
                 </div>
               </div>

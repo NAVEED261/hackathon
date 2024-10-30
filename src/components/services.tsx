@@ -20,10 +20,12 @@ const Services = () => {
           {/* First Service */}
           <div className="p-4 w-full sm:w-1/2 md:w-1/3 flex flex-col text-center items-center hover:scale-105 transition-transform duration-300 ease-in-out">
             <div className="w-32 h-32 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 shadow-lg">
-              <img
-                src="/pictures/free delivery.png"
+              <Image
+                src="/pictures/free delivery.png" // Adjust this path if needed
                 alt="Free Delivery"
-                className="w-full h-full object-cover rounded-full"
+                width={128}
+                height={128}
+                className="rounded-full object-cover"
               />
             </div>
             <div className="flex-grow">
@@ -37,10 +39,12 @@ const Services = () => {
           {/* Second Service */}
           <div className="p-4 w-full sm:w-1/2 md:w-1/3 flex flex-col text-center items-center hover:scale-105 transition-transform duration-300 ease-in-out">
             <div className="w-32 h-32 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 shadow-lg">
-              <img
-                src="/pictures/png-clipart-24-7-service-illustration-24-7-service-handyman-los-angeles-customer-service-twenty-four-company-text.png"
+              <Image
+                src="/pictures/png-clipart-24-7-service-illustration-24-7-service-handyman-los-angeles-customer-service-twenty-four-company-text.png" // Adjust path if needed
                 alt="24/7 Service"
-                className="w-full h-full object-cover rounded-full"
+                width={128}
+                height={128}
+                className="rounded-full object-cover"
               />
             </div>
             <div className="flex-grow">
@@ -54,13 +58,13 @@ const Services = () => {
           {/* Third Service */}
           <div className="p-4 w-full sm:w-1/2 md:w-1/3 flex flex-col text-center items-center hover:scale-105 transition-transform duration-300 ease-in-out">
             <div className="w-32 h-32 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 shadow-lg">
-            <Image
-  src="/path/to/image.jpg"
-  alt="description"
-  width={500}
-  height={500}
-/>
-
+              <Image
+                src="/pictures/iso.png" // Update this path with the correct image file for ISO Certification
+                alt="ISO Certified"
+                width={128}
+                height={128}
+                className="rounded-full object-cover"
+              />
             </div>
             <div className="flex-grow">
               <h2 className="text-gray-900 text-lg title-font font-semibold mb-3">
