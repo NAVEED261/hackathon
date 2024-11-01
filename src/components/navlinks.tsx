@@ -12,7 +12,7 @@ const components = [
 
 export function NavigationMenuDemo() {
   return (
-    <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
+    <div className="flex flex-row items-center space-x-6">
       <Link href="/" className="text-blue-500 hover:text-blue-700">Home</Link>
       <Link href="/about" className="text-blue-500 hover:text-blue-700">About</Link>
       <Link href="/contact" className="text-blue-500 hover:text-blue-700">Contact</Link>

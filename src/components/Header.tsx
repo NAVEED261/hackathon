@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 export const ButtonDemo = () => {
   const [count, setCount] = useState(0);
@@ -29,7 +29,7 @@ export const ButtonDemo = () => {
 const Header = () => {
   return (
     <>
-      <header className="bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 p-4 shadow-2xl rounded-full fixed w-[95%] top-4 left-[2.5%] z-50 pb-4">
+      <header className="bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 p-4 shadow-2xl rounded-full w-[95%] mx-auto mt-4 z-50 relative">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between p-4 space-y-4 md:space-y-0">
           <div className="flex items-center space-x-4">
             <Image
@@ -44,7 +44,7 @@ const Header = () => {
             </span>
           </div>
 
-          <nav className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
+          <nav className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4 z-50 relative">
             <Link href="/" className="bg-amber-200 border border-amber-300 shadow-md px-3 py-1 md:px-4 md:py-2 rounded-md text-amber-800 hover:bg-amber-300 transition-all duration-300 ease-in-out">
               Home
             </Link>
@@ -59,7 +59,7 @@ const Header = () => {
               <span className="bg-purple-200 border border-purple-300 shadow-md px-3 py-1 md:px-4 md:py-2 rounded-md text-purple-800 cursor-pointer hover:bg-purple-300 transition-all duration-300 ease-in-out">
                 Grocessories
               </span>
-              <ul className="absolute hidden group-hover:block bg-purple-100 shadow-lg rounded-lg mt-2 p-4 w-40 z-10 border border-purple-300 transition-all duration-300 ease-in-out">
+              <ul className="absolute hidden group-hover:block bg-purple-100 shadow-lg rounded-lg mt-2 p-4 w-40 z-40 border border-purple-300 transition-all duration-300 ease-in-out">
                 <li className="p-2 hover:bg-purple-200 rounded-lg">
                   <Link href="/grocessories/fruits" className="block text-purple-900 hover:text-gray-900">Fruits</Link>
                 </li>
@@ -76,7 +76,7 @@ const Header = () => {
             </div>
           </nav>
 
-          <div className="flex items-center space-x-2 mt-4 md:mt-0">
+          <div className="flex items-center space-x-2 mt-4 md:mt-0 z-50">
             <Image
               src="/pictures/add to cart.webp"
               alt="Add to Cart"
@@ -89,7 +89,7 @@ const Header = () => {
         </div>
       </header>
 
-      <main className="mt-40 p-6">
+      <main className="mt-16 p-6">
         <section>
           <h1 className="text-4xl font-bold text-sky-800">Welcome to Fatima Zehra Online Store</h1>
           <p className="mt-4 text-gray-600">
